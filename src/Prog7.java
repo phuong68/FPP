@@ -1,10 +1,6 @@
 
 public class Prog7 {
 
-//	Write a program to accept the string inputs from Command line arguments and perform the
-//	following.
-//	a. Print the length of each string input.
-//	b. Count the string inputs starts with ‘A’.
 	public static void main(String[] args) {
 		
 		if (args.length==0) {

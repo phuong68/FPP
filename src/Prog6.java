@@ -1,34 +1,41 @@
-
+import java.util.Arrays;
+import java.util.StringJoiner;
 
 public class Prog6 {
 
-//	Write a program called RemoveDups. Create an array which accepts an array of
-//	Strings only. Creates a new array in which all duplicate Strings in the original input array have
-//	been removed.
-//	For example, if the input array is
-//	["horse", "dog", "cat", "horse","dog"]
-//	then the output would be the following array:
-//	["horse","dog","cat"]
 	public static void main(String[] args) {
-		String[] str = {"horse", "dog", "cat", "horse","dog"};
 		
-		String[] ret= {"", "", "", "",""};
-		int count=0;
-		ret[count] = str[0];
-		for(int i=1; i<str.length-1; i++){
-			for(int j=0; j<str.length-1; j++){
-				if(ret[count]!=str[j]) {
-					ret[++count]=str[j];
-				}
-			}
-
+		String[] source = {"horse", "dog", "cat", "horse","dog"};
+		String[] temp ={null, null, null, null,null};
+		
+		
+		int indexOutput = 1;
+		temp[0] = source[0];
+	    int j;
+	    
+	    for (int i = 1; i < source.length; i++) {            
+	        j = 0;
+	        while ((temp[j] != source[i]) && j < indexOutput) {
+	            j++;
+	        }
+	        if(j == indexOutput){
+	        	temp[indexOutput] = source[i];
+	           indexOutput++;
+	        }         
+	    }
+		
+		
+		//copy to dest string
+		String[] dest = new String[indexOutput];
+		System.arraycopy(temp,0, dest, 0, indexOutput);
+		
+		// print result dest
+		for(String s: dest ) {
 			
+			System.out.print(s+" ");
 		}
-		
-		System.out.println(ret.toString());
 		
 	}
 	
-
 
 }
