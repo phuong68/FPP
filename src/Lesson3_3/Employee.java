@@ -1,12 +1,13 @@
-package Lesson3;
+package Lesson3_3;
 
 import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.Date;
-import java.util.GregorianCalendar;
-import java.util.InputMismatchException;
 
-public class Employee1 {
+import Lesson3.AccountType;
+
+
+public class Employee {
 	// instance fields
 	private String name;
 	private Account savingsAcct;
@@ -15,7 +16,7 @@ public class Employee1 {
 	private LocalDate hireDay;
 
 	// constructor
-	Employee1(String name, int yearOfHire, int monthOfHire, int dayOfHire) {
+	Employee(String name, int yearOfHire, int monthOfHire, int dayOfHire) {
 		this.name = name;
 		hireDay = LocalDate.of(yearOfHire, monthOfHire, dayOfHire);
 	}
@@ -31,17 +32,17 @@ public class Employee1 {
 	}
 	
 	public void createNewChecking(double startAmount) {
-		this.checkingAcct = new Account(new Employee(),AccountType.CHECKING);
+		this.checkingAcct = new Account(this, AccountType.CHECKING);
 		this.checkingAcct.makeDeposit(startAmount);
 	}
 	
 	public void createNewSavings(double startAmount) {
-		this.savingsAcct = new Account(new Employee(),AccountType.SAVINGS);
+		this.savingsAcct = new Account(this, AccountType.SAVINGS);
 		this.savingsAcct.makeDeposit(startAmount);
 	}
 	
 	public void createNewRetirement(double startAmount) {
-		this.retirementAcct = new Account(new Employee(),AccountType.RETIREMENT);
+		this.retirementAcct = new Account(this, AccountType.RETIREMENT);
 		this.retirementAcct.makeDeposit(startAmount);
 	}
 	
@@ -93,7 +94,25 @@ public class Employee1 {
 	
 	
 	public String getFormatedAccountInfo() {
-		//private String format = "name = %s, salary = %.2f, hireDay = %s";
-		return null;//String.format(format, name,  Util.dateAsString(hireDay));
+		StringBuilder sb = new StringBuilder();
+		
+		sb.append("ACCOUNT INFO FOR ");
+		sb.append(this.name.toString());
+		sb.append(":\n");
+		sb.append("Account type: checking");
+		sb.append("Current bal: ");
+		sb.append(this.checkingAcct.balance + "\n");
+	 
+		sb.append("Account type: savings");
+		sb.append("Current bal: ");
+		sb.append(this.savingsAcct.getBalance() + "\n");
+	 
+		
+		sb.append("Account type: retirement");
+		sb.append("Current bal: ");
+		sb.append(this.retirementAcct.getBalance() + "\n");
+		
+		
+		return sb.toString();
 	}
 }
