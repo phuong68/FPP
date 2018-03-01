@@ -37,9 +37,15 @@ public class Main{
 			//do nothing..the application ends here
 		}	
 	}
+	
 	String getFormattedAccountInfo(){
-		//loop through employees array and get formatted
-		//account info for each employee, and assemble into a string
-		return null;
+		String str="";
+		
+		for(Employee emp: this.emps) {
+			str +="\n" + emp.getFormatedAccountInfo();
+			
+		}
+		
+		return str;
 	}
 }
