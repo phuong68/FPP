@@ -20,6 +20,10 @@ public class Employee {
 		hireDay = cal.getTime();
 	}
 
+	public Employee() {
+		// TODO Auto-generated constructor stub
+	}
+
 	// instance methods
 	public String getName() {
 		return name;
