@@ -10,8 +10,8 @@ public class Prog2 {
 		Account accSavings = new Account(emp,AccountType.SAVINGS,300);
 		
 		accCheckings.makeWithdrawal(100);
-		accSavings.makeDeposit(50);
-		accRetire.makeDeposit(50);
+		accSavings.makeDeposit(80);
+		accRetire.makeDeposit(20);
 		
 		System.out.println(accCheckings.toString());
 		System.out.println(accSavings.toString());

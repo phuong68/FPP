@@ -1,6 +1,6 @@
 package Lesson3;
 
-class Account {
+public class Account {
 	public final static String CHECKING = "checking";
 	public final static String SAVINGS = "savings";
 	public final static String RETIREMENT = "retirement";
