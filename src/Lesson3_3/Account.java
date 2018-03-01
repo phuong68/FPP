@@ -22,7 +22,7 @@ public class Account {
 	}
 
 	public String toString() {
-		return "type = " + acctType + ", balance = " + balance;
+		return "type = " + acctType + ", balance == " + balance;
 	}
 
 	public void makeDeposit(double deposit) {
