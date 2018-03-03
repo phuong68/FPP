@@ -14,7 +14,7 @@ public class Lesson4 {
 		System.out.println("Input: akel");
 		System.out.println("Result: " + findStringMinimum("akeZAl"));
 		
-		System.out.println("\n");
+		System.out.println("\n"); 
 		
 		System.out.println("3. Recursive search ");
 		System.out.println("Input: abcdefgh - search for : e");
