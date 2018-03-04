@@ -12,13 +12,19 @@ public class Lesson4 {
 		
 		System.out.println("2. Find the minimum character in a string");
 		System.out.println("Input: akel");
-		System.out.println("Result: " + findStringMinimum("akeZAl"));
+		System.out.println("Result: " + findStringMinimum("akel"));
 		
 		System.out.println("\n"); 
 		
 		System.out.println("3. Recursive search ");
 		System.out.println("Input: abcdefgh - search for : e");
 		System.out.println("Result: e is at " + binarySearch("abcdefgh",'e'));
+		
+		System.out.println("\n"); 
+		
+		System.out.println("3. Check palindrome string  ");
+		System.out.println("Input: madam");
+		System.out.println("Result:  " + checkPalindrome("madam"));
 		
 
 	}
@@ -83,7 +89,7 @@ public class Lesson4 {
 		return recursiveSearch(s,ch);
 	}
 	
-	private static int recursiveSearch(String s, char ch) {
+	static int recursiveSearch(String s, char ch) {
 		int i=-1;
 		int len = s.length();
 		char mid=s.charAt(len/2);
@@ -104,4 +110,21 @@ public class Lesson4 {
 		return i;
 		
 	}
+
+	 public static boolean checkPalindrome(String s) {
+		boolean ret=false;
+		int len= s.length();
+		
+		if (len==0 || len==1) {
+			ret = true;
+		}else if (s.charAt(0)==s.charAt(len-1)){
+			
+			ret = true && checkPalindrome(s.substring(1,len-1));
+		}else {
+			ret= false;
+		}
+		
+		return ret;
+	}
 }
+
