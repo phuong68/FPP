@@ -1,4 +1,4 @@
-package Lesson5;
+package Lesson5_3;
 
 public class DownwardHat extends Figure{
 	public void getFigure() {

@@ -1,4 +1,4 @@
-package Lesson5;
+package Lesson5_4;
 
 public abstract class Employee implements Payable {
 	

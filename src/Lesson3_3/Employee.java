@@ -1,3 +1,4 @@
+
 package Lesson3_3;
 
 import java.time.LocalDate;
@@ -97,21 +98,26 @@ public class Employee {
 		StringBuilder sb = new StringBuilder();
 		
 		sb.append("ACCOUNT INFO FOR ");
-		sb.append(this.name.toString());
-		sb.append(":\n");
-		sb.append("Account type: checking");
-		sb.append("Current bal: ");
-		sb.append(this.checkingAcct.balance + "\n");
-	 
-		sb.append("Account type: savings");
-		sb.append("Current bal: ");
-		sb.append(this.savingsAcct.getBalance() + "\n");
-	 
+		sb.append(this.name);
+		sb.append(":\n\n");
 		
-		sb.append("Account type: retirement");
-		sb.append("Current bal: ");
-		sb.append(this.retirementAcct.getBalance() + "\n");
+		if (this.checkingAcct!=null) {
+			sb.append("Account type: \tchecking\n");
+			sb.append("Current bal: \t");
+			sb.append(this.checkingAcct.balance + "\n");
+		}
 		
+		if (this.savingsAcct!=null) {
+			sb.append("Account type: \tsavings\n");
+			sb.append("Current bal: \t");
+			sb.append(this.savingsAcct.getBalance() + "\n");
+		}
+		
+		if (this.retirementAcct!=null) {
+			sb.append("Account type: \tretirement\n");
+			sb.append("Current bal: \t");
+			sb.append(this.retirementAcct.getBalance() + "\n");
+		}
 		
 		return sb.toString();
 	}

@@ -1,4 +1,4 @@
-package Lesson5;
+package Lesson5_4;
 
 public class HourlyEmployee extends Employee {
 	double wage;

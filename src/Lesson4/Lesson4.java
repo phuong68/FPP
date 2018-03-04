@@ -7,10 +7,24 @@ public class Lesson4 {
 		System.out.println("1. Merge two strings using recurrisive");
 		System.out.println("Inputs: 1. ace\t 2. bdf");
 		System.out.println("Result: " + mergeStrings("ace","bdf"));
+
+		System.out.println("\n");
 		
 		System.out.println("2. Find the minimum character in a string");
 		System.out.println("Input: akel");
 		System.out.println("Result: " + findStringMinimum("akel"));
+		
+		System.out.println("\n"); 
+		
+		System.out.println("3. Recursive search ");
+		System.out.println("Input: abcdefgh - search for : e");
+		System.out.println("Result: e is at " + binarySearch("abcdefgh",'e'));
+		
+		System.out.println("\n"); 
+		
+		System.out.println("3. Check palindrome string  ");
+		System.out.println("Input: madam");
+		System.out.println("Result:  " + checkPalindrome("madam"));
 		
 
 	}
@@ -50,11 +64,11 @@ public class Lesson4 {
 	
 	static char findStringMinimum(String s){
 	
-		return findMinimum(s,'Z');
+		return findMinimum(s,'z');
 	}
-	
-	
+		
 	private static char findMinimum(String s, char currMin){
+
 		char tmp=' ';
 		
 		if (s.length()==0) {
@@ -71,4 +85,50 @@ public class Lesson4 {
 		return tmp;
 	}
 
+	static int binarySearch(String s, char ch) {
+		return recursiveSearch(s,ch);
+	}
+	
+	static int recursiveSearch(String s, char ch) {
+		int i=-1;
+		int len = s.length();
+		char mid=s.charAt(len/2);
+		
+		if (mid==ch){
+			
+			i=len/2;
+			
+		}else if(mid> ch) {
+			
+			i = recursiveSearch(s.substring(0,len/2-1), ch);
+			
+		}else {
+			i = recursiveSearch(s.substring(len/2+1), ch);
+		}
+			
+		
+		return i;
+		
+	}
+
+	 public static boolean checkPalindrome(String s) {
+		boolean ret=false;
+		int len= s.length();
+		
+		if (len==0 || len==1) {
+			ret = true;
+		}else if (s.charAt(0)==s.charAt(len-1)){
+			
+			ret = true && checkPalindrome(s.substring(1,len-1));
+		}else {
+			ret= false;
+		}
+		
+		return ret;
+	}
+
+
+	
+
 }
+

@@ -1,4 +1,6 @@
 package Lesson3_3;
+
+
 import Lesson3.AccountType;
 
 public class Account {
@@ -10,13 +12,13 @@ public class Account {
 	public AccountType acctType;
 	private Employee employee;
 
-	Account(Employee emp, AccountType acctType, double balance) {
+	public Account(Employee emp, AccountType acctType, double balance) {
 		employee = emp;
 		this.acctType = acctType;
 		this.balance = balance;
 	}
 
-	Account(Employee emp, AccountType acctType) {
+	public Account(Employee emp, AccountType acctType) {
 		this(emp, acctType, DEFAULT_BALANCE);
 	}
 
@@ -37,17 +39,26 @@ public class Account {
 	}
 
 	public boolean makeWithdrawal(double amount) {
+		boolean success= false;
+		
 		if (amount <= 0) {
 			System.out.println("Invalid withdrawal amount");
-			return false;
+			
+			return success;
 		}
 
-		if (this.balance >= amount) {
+		if (this.balance < amount) {
+			System.out.println("Balance insufficient");
+			success= false;
+		}
+		else {
+			
 			this.balance -= amount;
-			return true;
+			success= true;
+			
 		}
 
-		return false;
+		return success;
 	}
 
 	public double getBalance() {
