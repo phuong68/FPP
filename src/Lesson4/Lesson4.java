@@ -55,7 +55,7 @@ public class Lesson4 {
 	
 	
 	private static char findMinimum(String s, char currMin){
-		char tmp;
+		char tmp=' ';
 		
 		if (s.length()==0) {
 			tmp= currMin;
