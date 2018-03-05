@@ -1,6 +1,6 @@
 package Lesson5;
 
-public class Driver {
+public class Prog3 {
 
 	public static void main(String[] args) {
 		Figure[] fig =new  Figure[5];
