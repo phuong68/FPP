@@ -100,6 +100,7 @@ public class Prog1 extends JFrame implements ActionListener {
 	public String RemoveDuplicate(String str) {
 	
 		
+		
 		if ( str.length() <= 1 ) return str;
 	    if( str.substring(1,2).equals(str.substring(0,1)) ) return RemoveDuplicate(str.substring(1));
 	    else return str.substring(0,1) + RemoveDuplicate(str.substring(1));
