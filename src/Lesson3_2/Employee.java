@@ -1,7 +1,9 @@
-package Lesson3;
+package Lesson3_2;
 
 import java.util.Date;
 import java.util.GregorianCalendar;
+
+import Lesson3.Util;
 
 public class Employee {
 	// instance fields

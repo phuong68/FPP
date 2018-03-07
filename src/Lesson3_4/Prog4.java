@@ -1,4 +1,4 @@
-package Lesson3;
+package Lesson3_4;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;

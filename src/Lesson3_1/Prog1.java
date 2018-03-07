@@ -1,4 +1,4 @@
-package Lesson3;
+package Lesson3_1;
 
 public class Prog1 {
 

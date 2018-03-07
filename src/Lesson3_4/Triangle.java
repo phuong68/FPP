@@ -1,4 +1,4 @@
-package Lesson3;
+package Lesson3_4;
 
 public final class Triangle {
 	

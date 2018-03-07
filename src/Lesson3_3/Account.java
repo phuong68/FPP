@@ -1,7 +1,7 @@
 package Lesson3_3;
 
 
-import Lesson3.AccountType;
+import Lesson3_2.AccountType;
 
 public class Account {
 	public final static String CHECKING = "checking";

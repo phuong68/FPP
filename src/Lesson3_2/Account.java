@@ -1,4 +1,4 @@
-package Lesson3;
+package Lesson3_2;
 
 public class Account {
 	public final static String CHECKING = "checking";

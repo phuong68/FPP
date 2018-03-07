@@ -5,7 +5,7 @@ import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.Date;
 
-import Lesson3.AccountType;
+import Lesson3_2.AccountType;
 
 
 public class Employee {
