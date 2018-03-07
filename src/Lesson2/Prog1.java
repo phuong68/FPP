@@ -1,3 +1,4 @@
+package Lesson2;
 
 public class Prog1 {
 
