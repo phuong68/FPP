@@ -11,6 +11,7 @@ public class Prog1 extends JFrame implements ActionListener {
 	
 	public static void main(String[] a) {
 		Prog1 stringWindow = new Prog1("String Utility");
+		stringWindow.pack();
 		stringWindow.setVisible(true);
 	}
 	
@@ -39,20 +40,21 @@ public class Prog1 extends JFrame implements ActionListener {
 		container.setBounds(0, 0, 500, 200);
 		
 		JPanel leftPanel = new JPanel();
-		leftPanel.setLayout(new FlowLayout());
+		leftPanel.setLayout(new BoxLayout(leftPanel, BoxLayout.Y_AXIS));
 		
 		leftPanel.add(btnCount);
 		leftPanel.add(btnReverse);
 		leftPanel.add(btnRemove);
 		
 		JPanel rightPanel = new JPanel();
-		rightPanel.setLayout(new FlowLayout());
+		rightPanel.setLayout(new BoxLayout(rightPanel, BoxLayout.Y_AXIS));
 		
 		rightPanel.add(txtInput);
 		rightPanel.add(txtOutput);
 		
 		container.add(leftPanel,"West");
 		container.add(rightPanel,"East");
+
 		
 	}
 	
