@@ -58,7 +58,9 @@ public class Prog2 extends JFrame implements ActionListener{
 		buttons[6].setToolTipText("Violet is considered the highest element of spirituality. It can ignite one’s imagination and be an inspiration to artists.Dark tones of violet are associated with sorrow. Deeper shades of violet or purple denote high spiritual mastery.");
 
 		Container container = this.getContentPane();
-		container.setLayout(new FlowLayout());
+		FlowLayout fl = new FlowLayout();
+		container.setLayout(fl);
+	
 		
 		for(JButton b: buttons) {
 			b.addActionListener(this);
@@ -66,6 +68,7 @@ public class Prog2 extends JFrame implements ActionListener{
 			
 		}
 		
+		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		
 		
 	}

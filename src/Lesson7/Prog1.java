@@ -99,6 +99,8 @@ public class Prog1 extends JFrame {
 		container.add(secondPanel);
 		container.add(thirdPanel);
 		container.add(ForthPanel);
+		
+		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 	}
 

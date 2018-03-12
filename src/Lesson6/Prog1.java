@@ -7,7 +7,7 @@ import javax.swing.*;
 public class Prog1 extends JFrame implements ActionListener {
 	JButton btnCount , btnReverse, btnRemove;
 	JTextField txtInput, txtOutput;
-	JLabel lblInput, lblOutput;
+	
 	
 	public static void main(String[] a) {
 		Prog1 stringWindow = new Prog1("String Utility");
@@ -48,13 +48,16 @@ public class Prog1 extends JFrame implements ActionListener {
 		
 		JPanel rightPanel = new JPanel();
 		rightPanel.setLayout(new BoxLayout(rightPanel, BoxLayout.Y_AXIS));
-		
+								
+		rightPanel.add(new JLabel("Input"));
 		rightPanel.add(txtInput);
+		rightPanel.add(new JLabel("Output"));
 		rightPanel.add(txtOutput);
 		
 		container.add(leftPanel,"West");
 		container.add(rightPanel,"East");
 
+		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		
 	}
 	
