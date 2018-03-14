@@ -112,7 +112,7 @@ public class MyStringList implements Iterable {
 	
 	//search a sorted array
 	boolean binSearch(String val) {
-		boolean b = recurse(0,strArray.length-1, val);
+		boolean b = recurse(0,size-1, val);
 		return b;
 	}
 
