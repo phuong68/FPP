@@ -40,18 +40,18 @@ public class MyStringLinkedList {
 	// implement the code
 	public void postAddNode(Node n, String value) {
 
-		Node found = this.findItem(n.value);
-		
-		//cant find, new header
-		if (found == null) {
+		Node newNode;
+		if (n == null) {
+			// List is empty
+			newNode = new Node(null, value, null);
+		} else if (n.next == null) {
+			// n is the first node
+			addLast(value);
+		} else {
 			
-			//header = new Node(null,"item",null);
-		 	
-		}else {// lastnode found, add to tail
-			
-			Node newNode = new Node(found,value,found.next);
-			found.next = newNode;
-			found.next.previous = newNode;
+			newNode = new Node(n,value,n.next);
+			n.next = newNode;
+			n.next.previous = newNode;
 			
 		}
 	}	// implement the code
@@ -283,10 +283,6 @@ public class MyStringLinkedList {
 		mySL.deleteNode(mySL.findItem("Carrot Cake"));
 		mySL.printList();
 		
-		System.out.println("Add [Carrot Cake] after [Blueberry Muffin]");
-		mySL.postAddNode(mySL.findItem("Blueberry Muffin"), "Carrot Cake");
-		mySL.printList();
-		
 		System.out.println("Add [Apple Pie] before [Blueberry Muffin]");
 		mySL.preAddNode(mySL.findItem("Blueberry Muffin"), "Apple Pie");
 		mySL.printList();
@@ -303,6 +299,22 @@ public class MyStringLinkedList {
 		mySL.postAddNode(mySL.findItem("Orange Juice"), "Peach Sauce");
 		mySL.printList();
 		
+		System.out.println("Print the Size: " + mySL.Size());
+		
+		System.out.println("Is the list empty: " + mySL.isEmpty());
+		
+		System.out.println("Get First Node: " + mySL.getFirst());
+		
+		System.out.println("Get Last Node: " + mySL.getLast());
+		
+		System.out.println("Remove First Node");
+		mySL.removeFirst();
+		mySL.printList();
+		
+		System.out.println("Remove Last Node");
+		mySL.removeLast();
+		mySL.printList();
+				
 		System.out.println("Delete list");
 		mySL.deleteList();
 		mySL.printList();
