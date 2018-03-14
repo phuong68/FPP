@@ -27,7 +27,7 @@ public class Main {
 		
 		//Step 2: pass the combined list to computeSumOfSalaries
 		double salarySum = Statistics.computeSumOfSalaries(combined);
-		System.out.println(salarySum);
+		System.out.println("Sum total Salary: " + salarySum);
 		
 	}
 	
