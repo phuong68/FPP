@@ -16,7 +16,7 @@ public class Key{
 	
 	@Override
 	public boolean equals(Object obj) {
-		if (obj == null || obj.getClass()==Key.class) return false; 
+		//if (obj == null || obj.getClass()==Key.class) return false; 
 		Key key = (Key)obj;
 		return key.firstName == this.firstName && key.lastName == this.lastName;
 	}
