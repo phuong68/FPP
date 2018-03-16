@@ -1,16 +1,10 @@
 package Lesson10_1;
 
-import java.awt.List;
-import java.util.Iterator;
-import java.util.TreeMap;
-import java.util.TreeSet;
-
 // Demo code for the user implemenation of Binary search tree
 public class MyBST {
 	/** The tree root. */
 	private BinaryNode root;
-	private List<int>  innerList;
-
+	
 	public MyBST() {
 		root = null;
 	}
@@ -200,7 +194,7 @@ public class MyBST {
 
 	public boolean isEmpty() {// implement
 		return (root == null);
-	} // check the tree is empty or not
+	} 
 
 	public Integer findMin() {
 		return findMin(root);
@@ -208,10 +202,15 @@ public class MyBST {
 
 	private Integer findMin(BinaryNode node) {// implement
 
+		if (node == null) return null;
+		else {
+			if (node.left == null) return node.element; 
+			else{
+				return findMin(node.left);
+			}
+			
+		}	
 		
-		
-		return null;
-
 	}
 
 	public Integer findMax() {
@@ -219,20 +218,16 @@ public class MyBST {
 	}
 
 	public Integer findMax(BinaryNode node) {// implement
-		return null;
+		if (node == null) return null;
+		else {
+			if (node.right == null) return node.element; 
+			else{
+				return findMax(node.right);
+			}
+			
+		}	
 	}
-	
-	private void toList() {}
-	
-	private void LNR(BinaryNode t) {
-//		if (t != null) {
-//			printTree(t.left);
-//			System.out.print(t.element + ",");
-//			printTree(t.right);
-//		}
-	}
-	
-	
+		
 
 	public static void main(String[] args) {
 
@@ -247,16 +242,16 @@ public class MyBST {
 		
 		System.out.println("NLR traverse: root = " + mybst.getRoot());
 		mybst.preOrder();
-		System.out.println();
+		System.out.println("\n");
 		
 		System.out.println("LNR traverse: root = " + mybst.getRoot());
 		mybst.printTree();
-		System.out.println();
+		System.out.println("\n");
 
 		
 		System.out.println("LRN traverse: root = " + mybst.getRoot());
 		mybst.postOrder();
-		System.out.println();
+		System.out.println("\n");
 		
 		System.out.println("Tree contains 20 ?: " + mybst.contains(20));
 		System.out.println();
@@ -267,28 +262,11 @@ public class MyBST {
 		System.out.println("Number of nodes: " + mybst.size());
 		System.out.println();
 		
-/*
-		TreeSet<Integer> ts = new TreeSet<Integer>();
-
-		for (int j = 0; j < a.length; j++) {
-			ts.add(a[j]);
-			System.out.println("\nAfter inserting " + j + "th item " + a[j]);
-			Iterator<Integer> it = ts.iterator();
-			Integer nextItem = null;
-			while (it.hasNext()) {
-				nextItem = it.next();
-				System.out.print(nextItem + " ");
-			}
-			System.out.println();
-		}
-
-		TreeMap<Integer, String> map = new TreeMap<Integer, String>();
-		map.put(8, "Hello");
-		map.put(10, "World!");
-		map.put(11, "Welcome");
-		map.remove(8);
-		String str = map.get(11) + ", " + map.get(10);
-		System.out.println(str);*/
-
+		System.out.println("Min: " + mybst.findMin());
+		System.out.println();
+		
+		System.out.println("Max: " + mybst.findMax());
+		System.out.println();
+		
 	}
 }

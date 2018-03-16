@@ -3,10 +3,10 @@ package Lesson9_1;
 public class ArrayQueueImpl {
 	private int[] arr = new int[10];
 	private int front = -1;
-	private int rear = 0;
+	private int rear = -1;
 
 	public int peek() {
-		return arr[0];
+		return arr[front];
 		// implement
 	}
 
@@ -14,53 +14,50 @@ public class ArrayQueueImpl {
 		
 		if (arr.length == rear+1) resize();
 		arr[++rear]= (int)obj;
-		front=0;
 		
-		// implement
+		if(front == -1) front = 0;
 	}
 
 	public int dequeue() {
 		
-		int[] newArr = new int[arr.length-1];
-		int retItem =  arr[0];
-				
-		for (int i=1; i<arr.length;i++){
-			
-			newArr[i-1] = arr[i];
+		if (isEmpty()) {
+			System.out.println("Queue is empty");
+			return -1;
 		}
+		int value = arr[front++];
 		
-		arr = newArr;
-		return retItem;
+		if (front == rear) front = rear =-1;
 		
-		// implement
+		return value ;
+		
+		
 	}
+
 
 	public boolean isEmpty() {
 		
-		return (rear-front)>0;
+		return rear==front;
 	}
 
 	public int size() {
 		// implement
-		return rear - front;
+		return (rear - front)+1;
 	}
 
 	private void resize() {
 		int[] newArr = new int[20];
-		int i;
-		for (i=0; i<arr.length;i++){
-			
-			newArr[i] = arr[i];
-		}
+		System.arraycopy(arr, front, newArr, 0, rear-front+1);
 		
 		arr = newArr;
+		rear = rear-front;
 		front=0;
-		rear = i-1;
-		// implement
+		
+			
+		
 	}
 	
 	public void print() {
-		for (int i=0; i<size();i++){
+		for (int i=front; i<=rear;i++){
 			
 			System.out.print("-> " + arr[i]);
 		}
@@ -70,26 +67,67 @@ public class ArrayQueueImpl {
 	public static void main(String[] a) {
 		
 		ArrayQueueImpl q = new ArrayQueueImpl();
+			
 		q.enqueue(10);
+		System.out.println("Enqueue 10, size: " + q.size());
+		q.print();
+		
+		
 		q.enqueue(20);
-		q.enqueue(15);
-		q.enqueue(50);
+		System.out.println("Enqueue 20, size: " + q.size());
+		q.print();
+		
+		
 		q.enqueue(30);
-		System.out.println("Queue: ");
+		System.out.println("Enqueue 15, size:  " + q.size());
+		q.print();
+		
+		
+		q.enqueue(40);
+		System.out.println("Enqueue 50, size: " + q.size());
+		q.print();
+				
+		q.enqueue(50);
+		System.out.println("Enqueue 30, size: " + q.size());
+		q.print();
+		
+	
+		System.out.println("Peek: " + q.peek());
+		System.out.println("Dequeue: " + q.dequeue() + ", size: " +q.size());
 		q.print();
 		
 		
 		System.out.println("Peek: " + q.peek());
-		System.out.println("Dequeue: " + q.dequeue());
+		System.out.println("Dequeue: " + q.dequeue() + ", size: " +q.size());
 		q.print();
 		
-		System.out.println("Peek: " + q.peek());
-		System.out.println("Dequeue: " + q.dequeue());
+		q.enqueue(10);
+		System.out.println("Enqueue 10, size: " + q.size());
 		q.print();
 		
+		q.enqueue(20);
+		System.out.println("Enqueue 20, size: " + q.size());
+		q.print();
 		
+		q.enqueue(70);
+		System.out.println("Enqueue 70, size: " + q.size());
+		q.print();
 		
+		q.enqueue(80);
+		System.out.println("Enqueue 80, size: " + q.size());
+		q.print();
 		
+		q.enqueue(90);
+		System.out.println("Enqueue 90, size: " + q.size());
+		q.print();
+		
+		q.enqueue(99);
+		System.out.println("Enqueue 99, size: " + q.size());
+		q.print();
+		
+		q.enqueue(100);
+		System.out.println("Enqueue 100, size: " + q.size());
+		q.print();
 		
 		
 	}
