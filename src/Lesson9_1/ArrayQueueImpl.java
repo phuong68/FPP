@@ -6,7 +6,10 @@ public class ArrayQueueImpl {
 	private int rear = -1;
 
 	public int peek() {
-		return arr[front];
+		if (!this.isEmpty())
+			return arr[front];
+		else
+			throw new NullPointerException("Queue is empty");
 		// implement
 	}
 
