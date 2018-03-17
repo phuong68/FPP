@@ -15,11 +15,40 @@ public class EmployeeInfo {
 	 */
 	public static List<Employee> removeDuplicates(List<Employee> employees) {
 		
-		for(int i= 0; i<employees.size();i++) {
-			//employees.
-			
-		}
-		return new ArrayList<Employee>();
+		int size = employees.size();
+		Employee[] source = new Employee[size];
+		Employee[] temp = new Employee[size];
+		 for (int i = 1; i < size; i++) {
+			 temp[i] = new Employee("",0); 
+		 }
+		
+		employees.toArray(source);
+		
+		
+		int indexOutput = 1;
+		temp[0]=source[0];
+	    int j;
+	    
+	    for (int i = 1; i < size; i++) {            
+	        j = 0;
+	        while ((!temp[j].equals(source[i])) && j < indexOutput) {
+	            j++;
+	        }
+	        if(j == indexOutput){
+	        	temp[indexOutput] = source[i]; 
+	           indexOutput++;
+	        }         
+	    }
+		
+		
+    		//copy to dest 
+    		List<Employee> dest = new ArrayList<Employee>(indexOutput);
+  		for (int i=0;i<indexOutput; i++){
+  			dest.add(temp[i]);
+  		}
+	  		
+	  		
+		return dest;
 	}
 	
 	

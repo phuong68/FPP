@@ -1,7 +1,8 @@
 package Lesson11_2;
 
-import java.util.HashMap;
-import java.util.List;
+import java.util.*;
+
+import javax.swing.text.html.HTMLDocument.Iterator;
 
 public class EmployeeAdmin {
 	
@@ -13,8 +14,24 @@ public class EmployeeAdmin {
 	*/
 	public static List<Employee> prepareReport(HashMap<String, Employee> table, List<String> socSecNums) {
 		
-		//IMPLEMENT
-		return null;
+		List<Employee> retEmps = new ArrayList<Employee>();
+		java.util.Iterator<String> iterator  = socSecNums.iterator();
+		String key;
+		
+		while(iterator.hasNext()) {
+			key=iterator.next();
+			if (table.containsKey(key)){
+				Employee emp = table.get(key);
+					if (emp.getSalary()>80000) {
+						retEmps.add(emp);
+					}
+			}
+			
+		}
+		
+		if (retEmps.size() >0) retEmps.sort(new SSNComparator());
+		
+		return retEmps;
 		
 	}
 	

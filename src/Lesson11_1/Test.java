@@ -21,11 +21,9 @@ public class Test {
 		Student s = new Student("Pierre", "Fromage", 2.8, Standing.FRESHMAN);
 		Key pierre = new Key("Pierre", "Fromage");
 		Key richard = new Key("Richard", "Fremling");
-		System.out.println(map.containsKey(pierre));
-		System.out.println(map.containsValue(s));
-//		results[0] = (map.get(pierre).equals(s));
-//		results[1] = map.containsKey(richard);
-//		System.out.println((Arrays.equals(expectedOutput, results) ? "pass" : "fail"));
+		results[0] = (map.get(pierre).equals(s));
+		results[1] = map.containsKey(richard);
+		System.out.println((Arrays.equals(expectedOutput, results) ? "pass" : "fail"));
 		
 		
 

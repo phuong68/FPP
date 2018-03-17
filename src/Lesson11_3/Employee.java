@@ -28,14 +28,17 @@ public class Employee {
 	
 	@Override
 	public boolean equals(Object e) {
-		if (e == null ||  e.getClass().getSimpleName() != "Employee") return true;
+		if (e == null ||  e.getClass() !=this.getClass()) return false;
 		
 		Employee em = (Employee)e;
 		return name==em.name && salary==em.salary;
 	}
+	
 	@Override
 	public int hashCode() {
 		return 11 + name.hashCode() + this.salary;
 	}
+	
+	
 	
 }
