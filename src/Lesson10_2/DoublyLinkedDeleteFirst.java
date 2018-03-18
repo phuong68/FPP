@@ -12,13 +12,40 @@ public class DoublyLinkedDeleteFirst {
 	//removes the node at position 1 and returns
 	//the string contained in that node
 	public String deleteFirst() {
-		//implement
-		return null;
+		Node deletedNode;
+		Node newFirst;
+		
+		if (isEmpty() ) throw new NullPointerException("List is Empty");
+		
+		deletedNode = header.next;
+		
+		if (header.next.next == null){// only 1 item in the list no second item
+			newFirst = null;
+			header.next = newFirst;
+			
+							
+		}
+		else{
+			
+			newFirst = header.next.next;
+			
+			newFirst.previous = null;
+			deletedNode.next = null;
+			
+			header.next = newFirst;
+			newFirst.previous = header;
+		}
+		
+		
+		return deletedNode.value;
+		
+		
+		
 	}
 	
 	public boolean isEmpty() {
-		//implement
-		return true;
+		 
+		return header.next == null;
 	}
 
 	// adds to the end of the list
@@ -68,9 +95,12 @@ public class DoublyLinkedDeleteFirst {
 		list.addLast("Bob");
 		list.addLast("Harry");
 		list.addLast("Steve");
+		System.out.println(list);
+		
 		String deleted = list.deleteFirst();
 		System.out.println("This item was deleted: " + deleted);
 		System.out.println(list);
+	
 
 	}
 }
